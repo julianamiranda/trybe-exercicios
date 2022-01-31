@@ -1,8 +1,3 @@
-### COMEÇANDO OS EXERCÍCIOS
-
-Abaixo temos um _gif_ do comportamento da aplicação até a parte 1 do exercício 3:
-
-![TicTacToe](images/tictactoe.gif)
 #### Exercício 1
 
 Escreva os testes para as configurações iniciais do jogo:
