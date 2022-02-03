@@ -5,7 +5,7 @@ import App from './App';
 
 afterEach(() => jest.clearAllMocks());
 
-it('fetches a joke', async () => {
+it('Verifica que, quando recebo uma piada, mostro ela na tela', async () => {
   const joke = {
     id: '7h3oGtrOfxc',
     joke: 'Whiteboards ... are remarkable.',
@@ -15,6 +15,16 @@ it('fetches a joke', async () => {
   global.fetch = jest.fn(() => Promise.resolve({
     json: () => Promise.resolve(joke),
   }));
+
+  // Outra possibilidade de escrever a função mocakada, mas com utilizandoo o jest.fn com mockedResolvedValue
+
+  /* jest.fn().mockResolvedValue({
+    json: jest.fn().mockResolvedValue({
+    id: '7h3oGtrOfxc',
+    joke: 'Whiteboards ... are remarkable.',
+    status: 200,
+    })
+  }) */
 
   render(<App />);
   const renderedJoke = await screen.findByText('Whiteboards ... are remarkable.');
