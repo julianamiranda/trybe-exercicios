@@ -1,0 +1,16 @@
+{
+  "name": "exercicio-numbers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "numbers.test.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha numbers.test.js"
+  },
+  "author": "Juliana",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
