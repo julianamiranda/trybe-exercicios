@@ -39,8 +39,19 @@ describe('Executa a função numberFunc', () =>{
       });
     });
   });
+  describe('quando o input não for um número', () => {
+    describe('a resposta', () => {
+      it('é uma string', () => {
+        const resposta = numberFunc('a');
+        expect(resposta).to.be.a('string');
+      });
+      it('é igual a "o valor deve ser um número"', () => {
+        const resposta = numberFunc('a');
+        expect(resposta).to.be.equals('o valor deve ser um número');
+      });
+    });
+  });
 });
-
 
 /* 
 // código antigo, refatorado acima
