@@ -1,0 +1,16 @@
+{
+  "name": "exercico-writefile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "writeFile.js",
+  "scripts": {
+    "start": "node writeFile.js",
+    "test": "mocha testWriteFile.test.js"
+  },
+  "author": "Juliana",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
