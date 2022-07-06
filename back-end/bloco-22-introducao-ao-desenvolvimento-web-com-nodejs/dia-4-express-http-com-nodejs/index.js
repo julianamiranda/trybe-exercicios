@@ -40,4 +40,19 @@ app.get('/simpsons', async(req, res) => {
   };
 });
 
+// Exercicio 7
+app.get('/simpons/:id', async(req, res) => {
+  try{
+    const { id } = req.params;
+    const simpsons = await simpsonsInfo.getSimpsons();
+
+    const getSimpsonsById = simpsons.find((s) => s.id === Number(id));
+    
+    if(!getSimpsonsById) return res.status(404).json({ message: 'simpson not found' });
+    return res.status(202).json(getSimpsonsById);
+  }catch(error){
+    return res.status(500).end;
+  };
+});
+
 app.listen(3000, () =>{ console.log("on na porta 3000")})
