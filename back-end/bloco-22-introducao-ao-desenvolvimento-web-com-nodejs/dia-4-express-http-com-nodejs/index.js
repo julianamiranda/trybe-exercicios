@@ -36,7 +36,7 @@ app.get('/simpsons', async(req, res) => {
     const simpsons = await simpsonsInfo.getSimpsons();
     return res.status(200).json(simpsons);
   } catch(error){
-    return res.status(500).end;
+    return res.status(500).end();
   };
 });
 
@@ -51,7 +51,25 @@ app.get('/simpons/:id', async(req, res) => {
     if(!getSimpsonsById) return res.status(404).json({ message: 'simpson not found' });
     return res.status(202).json(getSimpsonsById);
   }catch(error){
-    return res.status(500).end;
+    return res.status(500).end();
+  };
+});
+
+//Exercicio 8 - Cadastra novos personagens
+app.post('/simpsons', async (req, res) => {
+  try{
+    const { id, name } = req.body;
+    const simpsons = await simpsonsInfo.getSimpsons();
+
+    if(simpsons.some((s) => s.id === id)) return res.status(409).json( { message: 'id already exists'});
+
+    simpsons.push({ id, name });
+
+    await simpsonsInfo.setSimpsons(simpsons);
+    return res.status(204).end();
+
+  } catch(error){
+    return res.status(500).end();
   };
 });
 
