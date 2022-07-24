@@ -15,6 +15,8 @@ app.get('/books/:id', async (req, res) => {
 
 // 3. Altere o middleware da rota books criado no passo 2 para receber uma query string com a chave author_id
   const allBooks = await getByAuthorId(id);
+  
+  if (!allBooks) return res.status(404).json({ message: "author not found" });
 
   res.status(200).json(allBooks);
 })
